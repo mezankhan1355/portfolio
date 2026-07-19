@@ -244,9 +244,9 @@ backToTop.addEventListener("click", () => {
 // CONTACT FORM
 // ===============================
 
-const form = document.querySelector("form");
-
-emailjs.init("iddsBIKkiq-qCyvek");
+emailjs.init({
+    publicKey: "iddsBIKkiq-qCyvek"
+});
 
 const form = document.getElementById("contact-form");
 
@@ -263,16 +263,14 @@ form.addEventListener("submit", function(e){
     .then(function(){
 
         alert("Message sent successfully!");
-
         form.reset();
 
     })
 
     .catch(function(error){
 
-        alert("Failed to send message.");
-
         console.log(error);
+        alert("Failed to send message.");
 
     });
 
